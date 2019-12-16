@@ -1,0 +1,39 @@
+footer{
+    padding: 5rem;
+    background-color: #0072BC;
+    h2{
+        color: white;
+        margin-bottom: 2rem;
+        font-size: 3rem;
+    }
+    h3{
+        color: white;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    p{
+        font-size: 1.6rem;
+        color: white;
+    }
+    ul{
+        list-style: none;
+        li{
+            padding: .5rem;
+            border-bottom: 1px solid white;
+            a{
+                font-size: 1.6rem;
+                color: white !important;
+            }
+        }
+    }
+}
+
+.copyright{
+    background-color: rgb(2, 66, 109);
+    padding: 0 5rem;
+    p{
+        color: white;
+        font-size: 1.2rem;
+        margin: 0;
+    }
+}

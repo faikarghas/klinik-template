@@ -1,0 +1,445 @@
+
+
+=================================================
+1. Pada terminal di path folder kita ketik
+=================================================
+
+==============
+npm init / npm init -y
+==============
+
+-- langkah 1 ini untuk menghasilkan file package.json yang isinya adalah informasi package apa saja yang kita pakai
+-- dan command kita ketika kita mau develop atau production
+
+contoh :
+
+===Informasi package yg kita pake===
+
+"dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "@zeit/next-sass": "^1.0.1",
+    "next": "^9.1.5",
+    "next-compose-plugins": "^2.2.0",
+    "node-sass": "^4.13.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+}
+
+===Informasi command yg kita pake===
+
+"scripts": {
+    "dev": "next",
+    "build": "next build"
+},
+
+=================================================
+2. Setelah langkah pertama kita install apa saja package yg kita mau pake
+=================================================
+
+==============
+npm i --save react react-dom -next
+==============
+-- hasil nya nanti package kita akan tercatat di file package.json
+-- dan package" tersebut yg kita install akan berada di folder node modules (node modules ini akan otomatis ada setelah kita install package)
+-- jadi ketika kita pertama install package kita otomatis akan muncul folder:
+1. folder node_modules
+2. file package-lock.json(ini abaikan saja)
+
+untuk kasus ini berikut package yang harus di install:
+
+@zeit/next-css
+@zeit/next-sass
+next
+next-compose-plugins
+node-sass (ini compiler sass ke css, karna ujung" nya yg diliat web itu css, jadi sass hanya kebantu kita pas develop aja)
+react
+react-dom
+
+=================================================
+3. Lalu kita setting css nya (bisa pake css / sass)
+=================================================
+
+-- kita buat file di root project kita next.config.js
+
+isikan dengan berikut kode:
+
+=============
+
+const withCSS = require('@zeit/next-css')  // ini kita import dulu package yang tadi di install
+const withSASS = require('@zeit/next-sass') // ini kita import dulu package yang tadi di install
+const withPlugins = require('next-compose-plugins') // ini kita import dulu package yang tadi di install
+
+module.exports = withPlugins([
+    withCSS,
+    withSASS
+])
+
+
+// withPlugins diatas untuk mempermudah ngebungkus package withCSS dan withSASS serta kalo ada package lainnya yang mau dipake
+=============
+
+-- lalu kita bikin folder sass pada root project kita
+contoh pake sass dibawah:
+
+============
+
+next.config.js
+package.json
+node_modules
+pages
+sass  -> folder sass (nama bebas)
+    main.scss -> isi folder sass (nama bebas)
+
+
+*untuk folder sass dibikin senyaman mungkin aja mau gimna
+*untuk awal bisa kaya contoh dibawah
+
+sass
+    index.scss
+    about.scss
+    contact.scss
+
+*untuk sass ini kita bisa juga nulis syntax css jadi gak harus ikutin format sass nya
+contoh:
+
+css =>
+
+.wrapper h1 {
+    color: red;
+}
+
+sass =>
+
+.wrapper {
+    h1{
+        color:red;
+    }
+}
+============
+
+
+-- setelah kita bikin folder css / sass nya kita import di page kita
+-- ada banyak metode, untuk kali ini di tiap page nya kita import aja
+contoh :
+
+sass
+    index.scss
+    about.scss
+    contact.scss
+
+*untuk settingan seperti diatas berita kita import nya seperti berikut:
+----------------
+pada index.js
+
+import '../sass/index.scss'
+----------------
+----------------
+pada about.js
+
+import '../sass/index.scss'
+----------------
+----------------
+pada contact.js
+
+import '../sass/index.scss'
+----------------
+
+=================================================
+4. Kita bikin folder pages dan file" nya
+=================================================
+
+-- isinya ini adalah halaman" web kitaa
+
+contoh:
+
+pages
+    index.js => halaman home harus ini ya namanya
+    about.js
+    contact.js
+
+
+-- setelah kita bikin file index.js
+
+kita harus export function / class yg isinya nya nge return apa yang mau ditampilin di web
+
+--------------------------------------------------------------------------------------
+*catetan singkat, di javascript itu ada function declaration dan function expression
+
+==function declaration==
+
+function index() {
+    var angka = 15
+    return angka;
+}
+
+*index nama function
+
+==function expression==
+
+const index = () => {
+    return 1
+}
+
+*index nama function
+
+*kalo di react nama function sesuaikan dengan nama page aja biar gak pusing
+--------------------------------------------------------------------------------------
+
+
+
+
+--berikut contoh function dan class pada halaman index/about/contact:
+
+==class==
+
+import React from 'react'
+
+class Index extends React.Component{
+
+    render(){ // render ini adalah method untuk nge return JSX / html nya
+        return ( // di dalam method render itu kita harus return
+            <h2></h2>
+        )
+    }
+
+}
+
+export default Index
+* jangan lupa di export
+
+nah class diatas ini murni javascript loh ya
+biasa ditulis kaya gini :
+
+----------------------------------------------------------------------
+
+class Tasya {
+
+    functionFaikr(){
+        var nyapa = 'halo cantik'
+        return nyapa
+    }
+}
+
+----------------------------------------------------------------------
+
+jadi react nya dimana?
+
+dibawah ini kita kan extends React.Component artinya kita extends method di react itu / jadi bisa akses method react nya
+
+----------------------------------------------------------------------
+
+import React from 'react'
+
+class Index extends React.Component{
+
+    render(){ // render ini adalah method untuk nge return JSX / html nya
+        return ( // di dalam method render itu kita harus return
+            <h2></h2>
+        )
+    }
+
+}
+
+atauu
+
+import React,{Component} from 'react'
+
+class Index extends Component{
+
+    render(){ // render ini adalah method untuk nge return JSX / html nya
+        return ( // di dalam method render itu kita harus return
+            <h2></h2>
+        )
+    }
+
+}
+----------------------------------------------------------------------
+
+
+==funtion expression / declaration==
+
+--expression--
+----------------------------------------------------------------------
+import React from 'react'
+
+const Index = () => {
+    return (
+        <h1>Maap yaa</h1>
+    )
+}
+
+export default Index
+----------------------------------------------------------------------
+
+
+--declaration--
+----------------------------------------------------------------------
+import React from 'react'
+
+function Index (){
+    return (
+        <h1>halooo</h1>
+    )
+}
+
+export default Index
+----------------------------------------------------------------------
+
+* untuk pake fucntion gausah pake method render() lagi kaya class , nanti ketika kita return ( <h1>halo</h1> ) udh otomatis kebaca
+
+diatas, class dan funtion kita harus kudu wajib nge return ya kalo gamau bisa paka kaya gini contoh dibawah, tapi yaa buat apaa haha
+dan jangan lupa kita export
+
+----------------------------------------------------------------------
+import React from 'react'
+
+function Index (){
+    return null
+}
+
+export default Index
+----------------------------------------------------------------------
+
+=================================================
+5. Link antar page
+=================================================
+
+-- kita hanya mengimport next/link sudah terinstall ketika kita install package next
+
+contoh: 
+
+==================================
+Halaman index.js
+==================================
+
+----------------------------------------------------------------------
+import React from 'react'
+import Link from 'next/link'
+import '../sass/index.sass
+
+function Index (){
+    return (
+        <div className="wrapper container">
+            <Link href="/about"><a>LINK KE HALAMAN ABOUT</a></Link>
+        </div>
+    )
+}
+
+export default Index
+----------------------------------------------------------------------
+
+
+
+==================================
+Halaman about.js
+==================================
+
+----------------------------------------------------------------------
+import React from 'react'
+import Link from 'next/link'
+import '../sass/index.sass
+
+function Index (){
+    return (
+        <div className="wrapper container">
+            <Link href="/about"><a>LINK KE HALAMAN HOME</a></Link>
+        </div>
+    )
+}
+
+export default Index
+----------------------------------------------------------------------
+
+
+=================================================
+6. Bootstrap
+=================================================
+
+-- paga root folder pages , buat file _document.js
+
+pages
+    _document.js
+    index.js
+    about.js
+
+
+isinya template html kita, berikut:
+copy & paste kode dibawah aja yaa udah ada link bootstrap nyaa
+
+----------------------------------------------------------------------
+import Document, { Head, Main, NextScript } from 'next/document'
+
+export default class MyDocument extends Document {
+    static async getInitialProps (ctx) {
+        const initialProps = await Document.getInitialProps(ctx)
+        return { ...initialProps }
+    }
+    render() {
+        return (
+            <html>
+                <Head>
+                    <meta charSet="UTF-8" />
+                    <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+
+                    <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
+
+                    {/* bootstrap */}
+                    <link
+                        rel="stylesheet"
+                        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+                        crossOrigin="anonymous"
+                    />
+                </Head>
+                <body>
+                    <Main />
+                    <NextScript />
+                </body>
+            </html>
+        )
+    }
+}
+----------------------------------------------------------------------
+
+-- nah kalo udah, tinggal pake dehh
+
+=================================================
+7. Jalanin project nya lewat terminal
+=================================================
+
+--pada terminal ketik
+
+==============
+npm run dev
+==============
+
+pada no 1 di paling atas kan tadi udah dibahas yang ini:
+
+===Informasi command yg kita pake===
+
+"scripts": {
+    "dev": "next",
+    "build": "next build"
+},
+
+jadi, npm run dev itu sesuai dengan informasi diatas yaa
+
+bisa juga kaya gini:
+
+"scripts": {
+    "develop": "next",
+    "build": "next build"
+},
+
+--setelah itu buka di http://localhost:3000 default nya port 3000 yaa, nanti kita next belajar lagi lebih dalam port nya bisa ganti juga misal ke 3015
+
+
+* catatan tambahan
+================
+kalo error atau udh lu rubah tapi gak kerubah" restart ajaa, close terminal nya trus npm run dev lagi
+================
+
+
+SEKIANNN TERIMA KASIHHHHHH SEMANGATTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+
+

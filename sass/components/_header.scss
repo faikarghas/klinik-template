@@ -1,0 +1,79 @@
+header{
+    background: url('/images/bg-doctor-by-zach-vessels.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    position: relative;
+    .contact_header{
+        padding: 1.5rem 3rem;
+        ul{
+            list-style: none;
+            margin: 0;
+            li{
+                display: inline-block;
+                color: white !important;
+                margin-right: 1rem;
+
+                a{
+                    color: white !important;
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+    .nav_header{
+        padding: 2.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.705);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.705);
+
+        &-nav{
+            ul{
+                list-style: none;
+                margin: 0;
+                li{
+                    display: inline-block;
+                    margin-right: 2rem;
+                    a{
+                        font-size: 2rem;
+                        color: white !important;
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    }
+                }
+            }
+        }
+    }
+    .tag_header{
+        height: 65vh;
+        position: relative;
+        &-text{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            h1{
+                color: white;
+                margin: 0;
+                display: inline-block;
+                &:nth-child(3){
+                    font-size: 5rem;
+                    margin-bottom: 1rem;
+                }
+            }
+            p{
+                color: white;
+                font-size: 1.6rem;
+                padding: 1rem;
+                background-color: rgba(226, 220, 220, 0.123);
+                margin-bottom: 1rem;
+            }
+            a{
+                padding: 1rem;
+                font-size: 1.6rem;
+                color: white !important;
+                background-color: #0072BC;
+            }
+        }
+    }
+}
+
