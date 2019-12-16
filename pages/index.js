@@ -63,30 +63,30 @@ function Index(params) {
                             </Grid>
                             <Grid item xs={12} lg={6}>
                                 <h3>Opening Hours</h3>
-                                <table class="schedule">
+                                <table className="schedule">
                                     <tr>
-                                        <td class="tg-0lax">Monday</td>
-                                        <td class="tg-0lax">08:00 AM - 08:00 PM</td>
+                                        <td className="tg-0lax">Monday</td>
+                                        <td className="tg-0lax">08:00 AM - 08:00 PM</td>
                                     </tr>
                                     <tr>
-                                        <td class="tg-0lax">Tuesday</td>
-                                        <td class="tg-0lax">08:00 AM - 08:00 PM</td>
+                                        <td className="tg-0lax">Tuesday</td>
+                                        <td className="tg-0lax">08:00 AM - 08:00 PM</td>
                                     </tr>
                                     <tr>
-                                        <td class="tg-0lax">Wednesday</td>
-                                        <td class="tg-0lax">08:00 AM - 08:00 PM</td>
+                                        <td className="tg-0lax">Wednesday</td>
+                                        <td className="tg-0lax">08:00 AM - 08:00 PM</td>
                                     </tr>
                                     <tr>
-                                        <td class="tg-0lax">Thursday</td>
-                                        <td class="tg-0lax">08:00 AM - 08:00 PM</td>
+                                        <td className="tg-0lax">Thursday</td>
+                                        <td className="tg-0lax">08:00 AM - 08:00 PM</td>
                                     </tr>
                                     <tr>
-                                        <td class="tg-0lax">Friday</td>
-                                        <td class="tg-0lax">08:00 AM - 08:00 PM</td>
+                                        <td className="tg-0lax">Friday</td>
+                                        <td className="tg-0lax">08:00 AM - 08:00 PM</td>
                                     </tr>
                                     <tr>
-                                        <td class="tg-0lax">Saturday-Sunday</td>
-                                        <td class="tg-0lax">08:00 AM - 08:00 PM</td>
+                                        <td className="tg-0lax">Saturday-Sunday</td>
+                                        <td className="tg-0lax">08:00 AM - 08:00 PM</td>
                                     </tr>
                                 </table>
                             </Grid>
